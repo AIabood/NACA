@@ -22,19 +22,19 @@ export const PLANETS = [
     // ── Scientific Data ──────────────────────────────────────────
     stats: {
       distanceFromSun: "149.6 million km",
-      orbitalPeriod:   "365.25 days",
-      dayLength:       "24 hours",
-      diameter:        "12,742 km",
-      mass:            "5.972 × 10²⁴ kg",
-      gravity:         "9.8 m/s²",
+      orbitalPeriod: "365.25 days",
+      dayLength: "24 hours",
+      diameter: "12,742 km",
+      mass: "5.972 × 10²⁴ kg",
+      gravity: "9.8 m/s²",
       temperature: {
-        min:  "-88°C",
-        avg:  "15°C",
-        max:  "58°C",
+        min: "-88°C",
+        avg: "15°C",
+        max: "58°C",
       },
-      moons:           1,
-      atmosphere:      "78% Nitrogen, 21% Oxygen, 1% Other",
-      magneticField:   true,
+      moons: 1,
+      atmosphere: "78% Nitrogen, 21% Oxygen, 1% Other",
+      magneticField: true,
     },
 
     // ── UI Content ───────────────────────────────────────────────
@@ -51,6 +51,38 @@ export const PLANETS = [
     ],
 
     tags: ["habitable", "water", "life", "atmosphere", "moon"],
+
+    // ── Hotspots ───────────────────────────────────────────────
+    // phi: polar angle (0 to PI), theta: azimuthal angle (0 to 2PI)
+    hotspots: [
+      {
+        id: "ocean",
+        label: "Oceans",
+        title: "Pacific Ocean",
+        description: "The largest and deepest of Earth's oceanic divisions, covering about 32% of Earth's total surface area.",
+        phi: Math.PI / 2,
+        theta: Math.PI / 4,
+        icon: "🌊"
+      },
+      {
+        id: "continent",
+        label: "Continents",
+        title: "Africa",
+        description: "The world's second-largest and second-most populous continent, home to the Sahara Desert and the Nile River.",
+        phi: Math.PI / 1.8,
+        theta: Math.PI / -1.2,
+        icon: "🌍"
+      },
+      {
+        id: "atmosphere",
+        label: "Atmosphere",
+        title: "Stratosphere",
+        description: "The second major layer of Earth's atmosphere, containing the ozone layer which absorbs solar UV radiation.",
+        phi: Math.PI / 4,
+        theta: Math.PI / 2,
+        icon: "🌫️"
+      }
+    ]
   },
 ];
 
