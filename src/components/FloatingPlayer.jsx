@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
-export default function FloatingPlayer({ speed = 0.15, damping = 0.9 }) {
+export default function FloatingPlayer({ speed = 0.15, damping = 0.9, enabled = true }) {
   const { camera, gl } = useThree();
   const velocity = useRef(new THREE.Vector3());
   const keys = useRef({});
@@ -10,13 +10,14 @@ export default function FloatingPlayer({ speed = 0.15, damping = 0.9 }) {
   const euler = useRef(new THREE.Euler(0, 0, 0, "YXZ"));
 
   useEffect(() => {
+    if (!enabled) return;
+
     console.log("FloatingPlayer: Initializing...");
     const handleKeyDown = (e) => (keys.current[e.code] = true);
     const handleKeyUp = (e) => (keys.current[e.code] = false);
     
     const handleMouseMove = (e) => {
       if (document.pointerLockElement === gl.domElement) {
-        // Reduced sensitivity as requested previously
         mouseMove.current.x -= e.movementX * 0.001;
         mouseMove.current.y -= e.movementY * 0.001;
       }
@@ -37,9 +38,13 @@ export default function FloatingPlayer({ speed = 0.15, damping = 0.9 }) {
       window.removeEventListener("mousemove", handleMouseMove);
       gl.domElement.removeEventListener("mousedown", handleClick);
     };
-  }, [gl]);
+  }, [gl, enabled]);
 
   useFrame((state, delta) => {
+    if (!enabled) {
+      velocity.current.set(0, 0, 0);
+      return;
+    }
     // 1. Rotation (Mouse Look)
     euler.current.y = mouseMove.current.x;
     euler.current.x = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, mouseMove.current.y));

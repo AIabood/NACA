@@ -104,6 +104,26 @@ body,
   pointer-events: auto;
 }
 
+/* ── Immersive Experience ──────────────────────────────── */
+.experience-container {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: radial-gradient(circle at center, #050c2a 0%, #00000f 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-panel {
+  background: rgba(15, 25, 55, 0.4);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--r-lg);
+  padding: var(--sp-lg);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
 /* ── Canvas ──────────────────────────────────────────────  */
 .space-canvas {
   position: absolute !important;

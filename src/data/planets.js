@@ -52,35 +52,36 @@ export const PLANETS = [
 
     tags: ["habitable", "water", "life", "atmosphere", "moon"],
 
-    // ── Hotspots ───────────────────────────────────────────────
-    // phi: polar angle (0 to PI), theta: azimuthal angle (0 to 2PI)
+    // ── Exploration Categories (Timeline) ────────────────────────
+    categories: [
+      { id: "overview", label: "Earth", title: "Global Overview", description: "The third planet from the Sun, our home is the only known world with life.", phi: 1.5, theta: 0 },
+      { id: "atmosphere", label: "Atmosphere", title: "Gaseous Shield", description: "A protective layer of nitrogen and oxygen that makes life possible.", phi: 0.8, theta: 1.5 },
+      { id: "oceans", label: "Oceans", title: "Water World", description: "71% of Earth's surface is covered by vast, deep oceans.", phi: 1.8, theta: 0.5 },
+      { id: "life", label: "Life", title: "Biosphere", description: "A diverse ecosystem ranging from deep sea vents to high mountain peaks.", phi: 1.4, theta: -1.2 },
+      { id: "structure", label: "Structure", title: "Core & Crust", description: "A dynamic planet with a solid crust, mantle, and molten core.", phi: 1.2, theta: 2.5 }
+    ],
+
+    // ── Detailed Hotspots ──────────────────────────────────────────
     hotspots: [
       {
-        id: "ocean",
-        label: "Oceans",
-        title: "Pacific Ocean",
-        description: "The largest and deepest of Earth's oceanic divisions, covering about 32% of Earth's total surface area.",
+        id: "ocean_deep",
+        category: "oceans",
+        label: "Pacific",
+        title: "The Deep Blue",
+        description: "The largest water body on Earth, regulating global climate.",
         phi: Math.PI / 2,
         theta: Math.PI / 4,
         icon: "🌊"
       },
       {
-        id: "continent",
-        label: "Continents",
-        title: "Africa",
-        description: "The world's second-largest and second-most populous continent, home to the Sahara Desert and the Nile River.",
-        phi: Math.PI / 1.8,
-        theta: Math.PI / -1.2,
-        icon: "🌍"
-      },
-      {
-        id: "atmosphere",
-        label: "Atmosphere",
-        title: "Stratosphere",
-        description: "The second major layer of Earth's atmosphere, containing the ozone layer which absorbs solar UV radiation.",
-        phi: Math.PI / 4,
-        theta: Math.PI / 2,
-        icon: "🌫️"
+        id: "amazon",
+        category: "life",
+        label: "Amazon",
+        title: "Lungs of the Planet",
+        description: "The most biodiverse tropical rainforest in the world.",
+        phi: Math.PI / 1.7,
+        theta: -Math.PI / 2.5,
+        icon: "🌿"
       }
     ]
   },
